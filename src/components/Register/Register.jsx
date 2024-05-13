@@ -7,6 +7,7 @@ import "react-toastify/dist/ReactToastify.css";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 import Swal from "sweetalert2";
 import { AuthContex } from "../../provider/AuthProvider";
+import { Helmet } from "react-helmet-async";
 
 
 const Register = () => {
@@ -96,9 +97,9 @@ const Register = () => {
 
   return (
     <div>
-      {/* <Helmet>
-        <title>TheEstateMarket || Register</title>
-      </Helmet> */}
+      <Helmet>
+        <title>TasteMatrix || Register</title>
+      </Helmet>
       <h2 className="text-3xl mt-2 text-center">Please Register</h2>
 
       <div className="hero ">

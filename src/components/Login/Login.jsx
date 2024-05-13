@@ -6,7 +6,7 @@ import { AuthContex } from "../../provider/AuthProvider";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 
 
-// import { Helmet } from "react-helmet-async";
+import { Helmet } from "react-helmet-async";
 
 const Login = () => {
   const { loginUser, googleLogin, githubLogin } = useContext(AuthContex);
@@ -125,9 +125,9 @@ const Login = () => {
 
   return (
     <div>
-      {/* <Helmet>
-        <title>TheEstateMarket || Login</title>
-      </Helmet> */}
+      <Helmet>
+        <title>TasteMatrix || Login</title>
+      </Helmet>
       <h2 className="text-3xl mt-3 text-center">Please login</h2>
 
       <div className="hero">
