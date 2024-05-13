@@ -102,12 +102,12 @@ const Navbar = () => {
           <div className="flex justify-center items-center">
             <img
               className="w-12 mr-2"
-              src="https://i.ibb.co/8gwCyWq/logo-of-wonder.png"
+              src="https://i.ibb.co/qWpCPyq/logo-of-wonder.png"
               alt=""
             />
-            <span className="font-black text-xl  text-purple-600 mt-1">
-              Discobver <br />
-              Wonder
+            <span className="font-black text-xl bg-gradient-to-r from-green-700 to-violet-800 bg-clip-text text-transparent mt-1">
+            Taste<br />
+            Matrix
             </span>
           </div>
         </a>
@@ -115,7 +115,7 @@ const Navbar = () => {
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal px-1">{links}</ul>
       </div>
-      <div className="navbar-end">
+      <div>
         {user ? (
           <>
             <button
@@ -165,14 +165,15 @@ const Navbar = () => {
           </>
         ) : (
           <>
-            <Link className="mr-5" to="/register">
-              <button className="self-center px-3 py-2 font-semibold rounded bg-green-400 text-gray-900">
+            <Link className="mr-3" to="/register">
+              <button className="self-center px-2.5 py-2 font-semibold rounded bg-green-400 text-gray-900">
                 Register
               </button>
             </Link>
 
+            {/* bg-gradient-to-r from-green-400 to-blue-500 */}
             <Link to="/login">
-              <button className="self-center px-4 py-2 font-semibold rounded bg-violet-400 text-gray-900">
+              <button className="self-center px-3 py-2 font-semibold rounded bg-violet-400 text-gray-900">
                 Login
               </button>
             </Link>

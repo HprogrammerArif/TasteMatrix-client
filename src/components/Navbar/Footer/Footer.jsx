@@ -12,13 +12,13 @@ const Footer = () => {
             <div className="flex items-center justify-center w-12 h-12 rounded-full dark:bg-violet-600">
               <img
                 className="w-32"
-                src="https://i.ibb.co/8gwCyWq/logo-of-wonder.png"
+                src="https://i.ibb.co/TPtpHxF/logo-of-wonder2.png"
                 alt=""
               />
             </div>
-            <span className="font-black text-xl text-violet-600 ">
-              Discover <br />
-              Wander
+            <span className="font-black text-xl bg-gradient-to-r from-green-700 to-violet-500 bg-clip-text text-transparent mt-1">
+            Taste<br />
+            Matrix
             </span>
           </a>
 
