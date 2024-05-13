@@ -1,8 +1,9 @@
+import Carousel from "../../components/Banner/Carousel";
 
 const Home = () => {
   return (
     <div>
-      home
+      <Carousel></Carousel>
     </div>
   );
 };

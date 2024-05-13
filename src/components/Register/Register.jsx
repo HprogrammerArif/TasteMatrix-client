@@ -11,7 +11,7 @@ import { Helmet } from "react-helmet-async";
 
 
 const Register = () => {
-  const {creatUser} = useContext(AuthContex);
+  const {creatUser, setUser, user} = useContext(AuthContex);
   const [error, setError] = useState("");
   const [showPassword, setShowPassword] = useState(false);
   const navigate = useNavigate();
@@ -49,6 +49,7 @@ const Register = () => {
       .then((result) => {
         const user = result.user;
         console.log(user);
+        // setUser({ ...user, photoURL: photo, displayName: name });
 
         // Show success toast
         //toast.success("Registration Successful");

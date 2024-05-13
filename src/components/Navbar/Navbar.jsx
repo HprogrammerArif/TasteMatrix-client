@@ -16,9 +16,9 @@ const Navbar = () => {
     document.querySelector("html").setAttribute("data-theme", localTheme);
   }, [theme]);
 
-  if (loading) {
-    return <span className="loading loading-bars loading-lg"></span>
-  }
+  // if (loading) {
+  //   return <span className="loading loading-bars loading-lg"></span>
+  // }
 
   const handleToggle = (e) => {
     if (e.target.checked) {
@@ -47,10 +47,10 @@ const Navbar = () => {
         <NavLink to="/">Home</NavLink>
       </li>
       <li>
-        <NavLink to="/allTourSpot">All TourSpot</NavLink>
+        <NavLink to="/allTourSpot">All Foods</NavLink>
       </li>
       <li>
-        <NavLink to="/addTourSpot">Add TourSpot</NavLink>
+        <NavLink to="/addTourSpot">Gallery</NavLink>
       </li>
       {/* <li>
         <NavLink to="/updateTourSpot">Update TourSpot</NavLink>
@@ -119,7 +119,7 @@ const Navbar = () => {
         {user ? (
           <>
             <button
-              className="px-3 py-2 rounded-lg bg-purple-500 text-gray-100 font-semibold mr-4"
+              className="px-3 py-2 rounded-lg bg-violet-600 text-gray-100 font-semibold mr-4"
               onClick={handleLogOut}
             >
               <a>Logout</a>
@@ -127,8 +127,9 @@ const Navbar = () => {
 
             <button
             
-              className="dropdown rounded-2xl dropdown-end tooltip-left tooltip "
-              data-tip={user.displayName}
+              className="dropdown dropdown-end z-50 tooltip-left tooltip "
+              data-tip={user?.displayName}
+              title={user?.displayName}
               //data-tooltip-id="my-tooltip" data-tooltip-content={user.displayName}
             >
               
@@ -137,9 +138,10 @@ const Navbar = () => {
                 role="button"
                 className="btn btn-ghost  btn-circle avatar"
               >
-                <div className="w-15 border-4 border-green-600 rounded-full">
+                <div className="w-15 border-2 border-green-600 rounded-full">
                   <img
-                    alt="Tailwind CSS Navbar component"
+                  referrerPolicy="no-referrer"
+                    alt="User Profile Photo"
                     src={user?.photoURL}
                   />
                 </div>
