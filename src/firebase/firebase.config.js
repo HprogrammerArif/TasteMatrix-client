@@ -10,9 +10,9 @@ const firebaseConfig = {
   projectId: "tastematrix",
   storageBucket: "tastematrix.appspot.com",
   messagingSenderId: "933186519403",
-  appId: "1:933186519403:web:70044070478b66d28b0c2e",
+  appId: "1:933186519403:web:70044070478b66d28b0c2e"
 };
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
-export default app;
+export default app

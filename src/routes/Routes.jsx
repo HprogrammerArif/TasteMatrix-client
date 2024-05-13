@@ -2,6 +2,8 @@ import { createBrowserRouter } from "react-router-dom";
 import Main from "../layouts/Main";
 import NotFound from "../pages/Error/NotFound";
 import Home from "../pages/Home/Home";
+import Login from '../components/Login/Login'
+import Register from "../components/Register/Register";
 
 // import AddTourSpot from "../pages/AddTourSpot/AddTourSpot";
 // import UpdateTourSpot from "../pages/UpdateTourSpot/UpdateTourSpot";
@@ -53,14 +55,14 @@ const router = createBrowserRouter([
       //   path: "/contact",
       //   element: <Contact></Contact>,
       // },
-      // {
-      //   path: "login",
-      //   element: <Login></Login>,
-      // },
-      // {
-      //   path: "register",
-      //   element: <Register></Register>,
-      // },
+      {
+        path: "/login",
+        element: <Login></Login>,
+      },
+      {
+        path: "register",
+        element: <Register></Register>,
+      },
       // {
       //   path: "/addTourSpot",
       //   element: (
