@@ -25,7 +25,7 @@ const router = createBrowserRouter([
       {
         path: "/",
         element: <Home></Home>,
-        loader: () => fetch("https://discover-wander-server-mohammedarifs-projects.vercel.app/touristSpot"),
+        loader: () => fetch(`${import.meta.env.VITE_API_URL}/foods`),
       },
       // {
       //   path: "/allTourSpot",

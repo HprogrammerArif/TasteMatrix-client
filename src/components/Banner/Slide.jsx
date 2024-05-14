@@ -19,7 +19,7 @@ const Slide = ({ image, text, des }) => {
             to="/all-foods"
             className="w-full px-5 py-4 mt-4 text-sm font-medium text-white capitalize transition-colors duration-300 transform bg-gradient-to-r from-green-700 to-violet-800 rounded-md lg:w-auto hover:bg-gray-500 focus:outline-none focus:bg-gray-500"
           >
-            Post Job & Hire Expert
+            Discover Our Food & Menu
           </Link>
         </div>
       </div>
