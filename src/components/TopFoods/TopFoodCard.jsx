@@ -5,7 +5,7 @@ const TopFoodCard = ({ food }) => {
   console.log(food);
   return (
     <div>
-      <div className="card card-compact h-[450px] bg-base-100 shadow-xl ">
+      <div className="card card-compact h-[420px] bg-base-100 shadow-xl ">
         <figure>
           <img
             className=" object-cover p-4  w-full animate__animated animate__pulse"

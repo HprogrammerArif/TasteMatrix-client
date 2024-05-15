@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import TopFoodCard from "./TopFoodCard";
 
 const TopFoods = ({foods}) => {
@@ -16,7 +17,15 @@ const TopFoods = ({foods}) => {
         {
           foods.map(food => <TopFoodCard key={food._id} food={food}></TopFoodCard>)
         }
+        
         </div>
+       <div className="text-center mx-auto mt-3">
+       <Link to='/all-foods'>
+       <button className=" py-3 w-[50%] bg-violet-500 animate__animated animate__pulse animate__delay-2s text-white capitalize transition-colors duration-300 transform bg-gradient-to-l from-red-700 to-yellow-800 mb-16">
+              See All Foods
+            </button>
+       </Link>
+       </div>
         {/* <TopFoodCard foods={foods}></TopFoodCard> */}
     </div>
   );
