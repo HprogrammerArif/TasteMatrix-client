@@ -15,7 +15,7 @@ const TopFoods = ({foods}) => {
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2  gap-8 px-4">
         {
-          foods.map(food => <TopFoodCard key={food._id} food={food}></TopFoodCard>)
+          foods.slice(0, 6).map(food => <TopFoodCard key={food._id} food={food}></TopFoodCard>)
         }
         
         </div>

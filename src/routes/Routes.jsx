@@ -4,6 +4,8 @@ import NotFound from "../pages/Error/NotFound";
 import Home from "../pages/Home/Home";
 import Login from '../components/Login/Login'
 import Register from "../components/Register/Register";
+import FoodDetails from "../pages/SinglePage/FoodDetails";
+import PrivateRoute from "./PrivateRoute";
 
 // import AddTourSpot from "../pages/AddTourSpot/AddTourSpot";
 // import UpdateTourSpot from "../pages/UpdateTourSpot/UpdateTourSpot";
@@ -41,16 +43,15 @@ const router = createBrowserRouter([
       //   ),
       //   loader: () => fetch("https://discover-wander-server-mohammedarifs-projects.vercel.app/touristSpot"),
       // },
-      // {
-      //   path: "/tourSpot/:id",
-      //   element: (
-      //     <PrivateRoute>
-      //       <TourDetails></TourDetails>
-      //     </PrivateRoute>
-      //   ),
-      //   loader: ({ params }) =>
-      //     fetch(`https://discover-wander-server-mohammedarifs-projects.vercel.app/touristSpot/${params.id}`),
-      // },
+      {
+        path: "/food/:id",
+        element: (
+          <PrivateRoute>
+            <FoodDetails></FoodDetails>
+          </PrivateRoute>
+        ),
+        loader: ({params}) => fetch(`${import.meta.env.VITE_API_URL}/food/${params.id}`),
+      },
       // {
       //   path: "/contact",
       //   element: <Contact></Contact>,
