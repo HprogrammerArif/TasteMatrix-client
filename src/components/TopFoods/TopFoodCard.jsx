@@ -4,7 +4,7 @@ const TopFoodCard = ({ food }) => {
 
   const { _id, food_category, food_image, food_name, price } = food;
 
-  console.log(food);
+  // console.log(food);
   return (
     <div>
       <div className="card card-compact h-[420px] bg-base-100 shadow-xl ">

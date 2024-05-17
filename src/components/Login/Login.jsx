@@ -20,12 +20,12 @@ const Login = () => {
     const form = new FormData(e.currentTarget);
     const email = form.get("email");
     const password = form.get("password");
-    console.log(email, password);
+    // console.log(email, password);
 
     loginUser(email, password)
       .then((result) => {
         const user = result.user;
-        console.log(user);
+        // console.log(user);
 
         // Show success toast
         //toast.success("Login Successful");
@@ -42,7 +42,7 @@ const Login = () => {
         navigate(location?.state ? location.state : "/");
       })
       .catch((error) => {
-        console.log(error.message);
+        // console.log(error.message);
         toast.error(error.message);
         Swal.fire({
           position: "top-end",
@@ -59,7 +59,7 @@ const Login = () => {
        googleLogin()
       .then((result) => {
         const user = result.user;
-        console.log(user);
+        // console.log(user);
 
         // Show success toast
         //toast.success("Login Successful");
@@ -94,7 +94,7 @@ const Login = () => {
     githubLogin()
       .then((result) => {
         const user = result.user;
-        console.log(user);
+        // console.log(user);
 
         // Show success toast
         toast.success("Login Successful");

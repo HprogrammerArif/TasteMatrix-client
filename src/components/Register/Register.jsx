@@ -24,7 +24,7 @@ const Register = () => {
     const photo = form.get("photo");
     const email = form.get("email");
     const password = form.get("password");
-    console.log(name, photo, email, password);
+    // console.log(name, photo, email, password);
 
 
        // VALIDATION
@@ -48,7 +48,7 @@ const Register = () => {
       creatUser(email, password)
       .then((result) => {
         const user = result.user;
-        console.log(user);
+        // console.log(user);
         // setUser({ ...user, photoURL: photo, displayName: name });
 
         // Show success toast
@@ -65,7 +65,7 @@ const Register = () => {
         navigate("/");
       })
       .catch((errors) => {
-        console.log(errors);
+        // console.log(errors);
 
         toast.error(errors.message);
         Swal.fire({

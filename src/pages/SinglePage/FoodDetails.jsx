@@ -8,7 +8,7 @@ const FoodDetails = () => {
   // const idInt = parseInt(id);
 
   const food = useLoaderData();
-  console.log(food);
+  // console.log(food);
 
   // useEffect(() => {
   //   const singleData = allData.find((sData) => sData.id === idInt);
