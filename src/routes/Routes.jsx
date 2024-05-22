@@ -6,6 +6,7 @@ import Login from '../components/Login/Login'
 import Register from "../components/Register/Register";
 import FoodDetails from "../pages/SinglePage/FoodDetails";
 import PrivateRoute from "./PrivateRoute";
+import AllFoods from "../pages/AllFoods/AllFoods";
 
 // import AddTourSpot from "../pages/AddTourSpot/AddTourSpot";
 // import UpdateTourSpot from "../pages/UpdateTourSpot/UpdateTourSpot";
@@ -27,7 +28,7 @@ const router = createBrowserRouter([
       {
         path: "/",
         element: <Home></Home>,
-        loader: () => fetch(`${import.meta.env.VITE_API_URL}/foods`),
+        //loader: () => fetch(`${import.meta.env.VITE_API_URL}/foods`),
       },
       // {
       //   path: "/allTourSpot",
@@ -52,10 +53,10 @@ const router = createBrowserRouter([
         ),
         loader: ({params}) => fetch(`${import.meta.env.VITE_API_URL}/food/${params.id}`),
       },
-      // {
-      //   path: "/contact",
-      //   element: <Contact></Contact>,
-      // },
+      {
+        path: "/all-foods",
+        element: <AllFoods></AllFoods>,
+      },
       {
         path: "/login",
         element: <Login></Login>,

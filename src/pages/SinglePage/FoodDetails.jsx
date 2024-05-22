@@ -50,7 +50,7 @@ const FoodDetails = () => {
             className="bg-no-repeat bg-cover dark:bg-gray-300 col-span-full lg:col-span-6"
             // style="background-image: url('https://source.unsplash.com/random/640x480'); background-position: center center; background-blend-mode: multiply; background-size: cover;"
           >
-            <img className=" pr-12" src={food_image} alt="" />
+            <img className=" pr-12 max-h-[450px] w-full" src={food_image} alt="" />
           </div>
           <div className="flex flex-col p-6 col-span-full row-span-full lg:col-span-6 lg:p-10">
             <div className="flex justify-start"></div>

@@ -1,6 +1,10 @@
 import { Link } from "react-router-dom";
+import useFoodData from "../../hooks/useFoodData";
 
-const Welcome = ({ foods }) => {
+const Welcome = () => {
+
+  const [foods] = useFoodData()
+
   const {
     food_image,
     food_name,
@@ -16,14 +20,14 @@ const Welcome = ({ foods }) => {
     <div className="dark:bg-gray-100 mt-8 px-4 dark:text-gray-900">
       <div className="container grid  grid-cols-12 mx-auto dark:bg-gray-50">
         <div className="bg-no-repeat bg-cover p-3 flex gap-3 dark:bg-gray-300 col-span-full lg:col-span-6">
-         <Link className="w-full" to={'/all-food'}>
+         <Link className="w-full" to={'/all-foods'}>
          <img
             className="rounded-2xl h-[370px] p-4 w-full"
             src={'https://i.ibb.co/qrthVpQ/banner-1.png'}
             alt=""
           />
            </Link>
-           <Link className="w-full" to={'/all-food'}>
+           <Link className="w-full" to={'/all-foods'}>
           <img
             className="rounded-2xl h-[370px] p-4 w-full"
             src={'https://i.ibb.co/02Jgv0C/banner-2.png'}
