@@ -4,9 +4,10 @@ import { useEffect, useState } from "react";
 import TopFoodCard from "../../components/TopFoods/TopFoodCard";
 
 const AllFoods = () => {
-  const [itemsPerPage, setItemsPerPage] = useState(2);
+  const [itemsPerPage, setItemsPerPage] = useState(4);
   const [currentPage, setCurrentPage] = useState(1);
   const [counts, setCount] = useState();
+  const [filter, setFilter] = useState('')
   const [foods, setFoods] = useState([]);
 
   useEffect(() => {
@@ -14,12 +15,13 @@ const AllFoods = () => {
       const { data } = await axios(
         `${
           import.meta.env.VITE_API_URL
-        }/all-foods?page=${currentPage}&size=${itemsPerPage}`
+        }/all-foods?page=${currentPage}&size=${itemsPerPage}&filter=${filter}`
       );
       setFoods(data);
     };
     getData();
-  }, [itemsPerPage, currentPage]);
+  }, [itemsPerPage, currentPage, filter]);
+  console.log(filter);
 
   useEffect(() => {
     const getCount = async () => {
@@ -57,14 +59,17 @@ const AllFoods = () => {
         <div className="flex flex-col md:flex-row justify-center items-center gap-5 ">
           <div>
             <select
+            onChange={(e) => setFilter(e.target.value)}
+            value={filter}
               name="category"
               id="category"
               className="border p-4 rounded-lg"
             >
               <option value="">Filter By Category</option>
-              <option value="Web Development">Web Development</option>
-              <option value="Graphics Design">Graphics Design</option>
-              <option value="Digital Marketing">Digital Marketing</option>
+              <option value="Fruits">Fruits</option>
+              <option value="Sweets and Desserts">Sweets and Desserts</option>
+              <option value="Seafood">Seafood</option>
+              <option value="Proteins">Proteins</option>
             </select>
           </div>
 
