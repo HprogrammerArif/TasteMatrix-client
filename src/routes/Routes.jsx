@@ -7,6 +7,7 @@ import Register from "../components/Register/Register";
 import FoodDetails from "../pages/SinglePage/FoodDetails";
 import PrivateRoute from "./PrivateRoute";
 import AllFoods from "../pages/AllFoods/AllFoods";
+import AddFood from "../pages/AddFood/AddFood";
 
 // import AddTourSpot from "../pages/AddTourSpot/AddTourSpot";
 // import UpdateTourSpot from "../pages/UpdateTourSpot/UpdateTourSpot";
@@ -65,14 +66,14 @@ const router = createBrowserRouter([
         path: "register",
         element: <Register></Register>,
       },
-      // {
-      //   path: "/addTourSpot",
-      //   element: (
-      //     <PrivateRoute>
-      //       <AddTourSpot></AddTourSpot>
-      //     </PrivateRoute>
-      //   ),
-      // },
+      {
+        path: "/add-food-item",
+        element: (
+          <PrivateRoute>
+            <AddFood></AddFood>
+          </PrivateRoute>
+        ),
+      },
       // {
       //   path: "/updateTourSpot/:id",
       //   element: (

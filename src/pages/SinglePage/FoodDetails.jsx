@@ -50,11 +50,18 @@ const FoodDetails = () => {
             className="bg-no-repeat bg-cover dark:bg-gray-300 col-span-full lg:col-span-6"
             // style="background-image: url('https://source.unsplash.com/random/640x480'); background-position: center center; background-blend-mode: multiply; background-size: cover;"
           >
-            <img className=" pr-12 max-h-[450px] w-full" src={food_image} alt="" />
+            <img
+              className=" pr-12 max-h-[450px] w-full"
+              src={food_image}
+              alt=""
+            />
           </div>
           <div className="flex flex-col p-6 col-span-full row-span-full lg:col-span-6 lg:p-10">
             <div className="flex justify-start"></div>
-            <h1 className="text-3xl font-semibold "><span className="font-bold">Name:</span>{food_name}</h1>
+            <h1 className="text-3xl font-semibold ">
+              <span className="font-bold">Name:</span>
+              {food_name}
+            </h1>
             <p className=" flex-1 py-4">
               <span className="font-bold ">Descriotion:</span>
               {` ${description}`}
@@ -104,10 +111,10 @@ const FoodDetails = () => {
                 <span className="self-center text-md">{made_by}</span>
               </div>
               <Link to={`/food/${_id}`}>
-            <button className="btn bg-violet-500 animate__animated animate__pulse animate__delay-2s text-white capitalize transition-colors duration-300 transform bg-gradient-to-l from-green-700 to-violet-800">
-              Add To Cart
-            </button>
-            </Link>
+                <button className="btn text-white capitalize bg-gradient-to-l from-green-700 to-violet-800">
+                  Add To Cart
+                </button>
+              </Link>
             </div>
           </div>
         </div>

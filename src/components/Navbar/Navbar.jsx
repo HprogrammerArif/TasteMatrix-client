@@ -7,8 +7,7 @@ import { AuthContex } from "../../provider/AuthProvider";
 const Navbar = () => {
   const { user, logOut } = useContext(AuthContex);
   const [theme, setTheme] = useState("light");
-  const {loading} = useContext(AuthContex)
-
+  const { loading } = useContext(AuthContex);
 
   useEffect(() => {
     localStorage.setItem("theme", theme);
@@ -106,8 +105,9 @@ const Navbar = () => {
               alt=""
             />
             <span className="font-black text-xl bg-gradient-to-r from-green-700 to-violet-800 bg-clip-text text-transparent mt-1">
-            Taste<br />
-            Matrix
+              Taste
+              <br />
+              Matrix
             </span>
           </div>
         </a>
@@ -126,13 +126,11 @@ const Navbar = () => {
             </button>
 
             <button
-            
               className="dropdown dropdown-end z-50 tooltip-left tooltip "
               data-tip={user?.displayName}
               title={user?.displayName}
               //data-tooltip-id="my-tooltip" data-tooltip-content={user.displayName}
             >
-              
               <div
                 tabIndex={0}
                 role="button"
@@ -140,7 +138,7 @@ const Navbar = () => {
               >
                 <div className="w-15 border-2 border-green-600 rounded-full">
                   <img
-                  referrerPolicy="no-referrer"
+                    referrerPolicy="no-referrer"
                     alt="User Profile Photo"
                     src={user?.photoURL}
                   />
@@ -151,16 +149,15 @@ const Navbar = () => {
                 className="mt-3 z-[1] p-2 shadow menu menu-sm dropdown-content bg-base-100 rounded-box w-52"
               >
                 <li>
-                  <Link to="/userProfile" className="justify-between">
-                    View Profile
-                    <span className="badge">New</span>
+                  <Link to="/my-order" className="">
+                    My Ordere
                   </Link>
                 </li>
                 <li>
-                  <a>Settings</a>
+                  <Link to="/add-food-item">Add Food Item</Link>
                 </li>
-                <li onClick={handleLogOut}>
-                  <a>Logout</a>
+                <li>
+                  <Link to="/my-added-item">My Added Item</Link>
                 </li>
               </ul>
             </button>

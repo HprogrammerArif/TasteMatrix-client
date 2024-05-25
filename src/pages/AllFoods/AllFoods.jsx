@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import TopFoodCard from "../../components/TopFoods/TopFoodCard";
 
 const AllFoods = () => {
-  const [itemsPerPage, setItemsPerPage] = useState(4);
+  const [itemsPerPage, setItemsPerPage] = useState(7);
   const [currentPage, setCurrentPage] = useState(1);
   const [counts, setCount] = useState();
   const [filter, setFilter] = useState("");
@@ -75,7 +75,7 @@ const AllFoods = () => {
     setSearch(searchText)
   }
 
-  console.log(search);
+  //console.log(search);
 
   return (
     <div className="container px-6 py-10 mx-auto min-h-[calc(100vh-306px)] flex flex-col justify-between">
