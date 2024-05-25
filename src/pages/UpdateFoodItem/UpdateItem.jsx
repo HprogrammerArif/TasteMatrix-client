@@ -1,17 +1,33 @@
 import { Helmet } from "react-helmet-async";
-import Swal from "sweetalert2";
+import { useLoaderData, useNavigate } from "react-router-dom";
 import { Typewriter } from "react-simple-typewriter";
 import useAuth from "../../hooks/useAuth";
-import useAxiosSecure from "../../hooks/useAxiosSecure";
-import { useNavigate } from "react-router-dom";
+import axios from "axios";
+import { toast } from "react-toastify";
 
-const AddFood = () => {
+const UpdateItem = () => {
+  const foodItem = useLoaderData();
+  console.log(foodItem);
   const { user } = useAuth();
-  const axiosSecure = useAxiosSecure()
+
   const navigate = useNavigate();
 
-  const handleAddFood = (e) => {
+  const {
+    food_name,
+    food_category,
+    price,
+    quantity,
+    made_by,
+    userEmail,
+    food_origin,
+    food_image,
+    description,
+    _id,
+  } = foodItem || {};
+
+  const handleUpdate = async (e) => {
     e.preventDefault();
+
     const form = e.target;
     const food_name = form.foodName.value;
     const food_category = form.foodCategory.value;
@@ -23,93 +39,56 @@ const AddFood = () => {
     const food_image = form.photoURL.value;
     const description = form.description.value;
 
-   
+    const foodData = {
+      food_name,
+      food_category,
+      price,
+      quantity,
+      made_by,
+      userEmail,
+      food_origin,
+      food_image,
+      description,
+      addedBy: {
+        made_by: user?.displayName,
+        userEmail: user?.email,
+      },
+    };
 
-    //send data to backend or server
-
-    if (user && user.email) {
-      //send cart item to the database
-
-      const newFoodItem = {
-        food_name,
-        food_category,
-        price,
-        quantity,
-        addedBy: {
-          made_by,
-          userEmail,
-        },
-        made_by,
-        userEmail,
-        food_origin,
-        food_image,
-        description,
-      };
-      console.log(newFoodItem);
-
-
-      axiosSecure.post("/foods", newFoodItem).then((res) => {
-        console.log(res.data);
-
-        if (res.data.insertedId) {
-          Swal.fire({
-            position: "top-end",
-            icon: "success",
-            title: `added food item sucessfully`,
-            showConfirmButton: false,
-            timer: 1500
-          });
-          // refatch the cart to update the cart items
-          //refetch()
-          form.reset();
-          navigate('/my-added-item')
-        }
-      });
-
-    } 
-
-    // else {
-    //   Swal.fire({
-    //     title: "You are not logged in",
-    //     text: "Please login to add to the cart?",
-    //     icon: "warning",
-    //     showCancelButton: true,
-    //     confirmButtonColor: "#3085d6",
-    //     cancelButtonColor: "#d33",
-    //     confirmButtonText: "Yes, Log In",
-    //   }).then((result) => {
-    //     if (result.isConfirmed) {
-    //       //send the user to  login page
-
-    //       //navigate("/login", { state: { from: location } });
-    //     }
-    //   });
-    // }
-
-
+    try {
+      const { data } = await axios.put(
+        `${import.meta.env.VITE_API_URL}/foods/${_id}`,
+        foodData
+      );
+      console.log(data);
+      toast.success("Job data updated successfully");
+      navigate("/my-added-item");
+    } catch (error) {
+      toast.error(error.message);
+      console.log("Hi im error from addJob", error.messgae);
+    }
   };
-
 
   return (
     <div>
       <Helmet>
-        <title>Add Food Items || TasteMatrix</title>
+        <title>Update Food Items || TasteMatrix</title>
       </Helmet>
       <section className="p-10 bg-gradient-to-l from-green-100 to-violet-200 text-white">
         <form
-          onSubmit={handleAddFood}
+          onSubmit={handleUpdate}
           noValidate=""
           action=""
           className="container flex flex-col mx-auto space-y-12"
         >
           <fieldset className="grid grid-cols-4 gap-6 p-6 w-[70%] mx-auto rounded-md shadow-2xl bg-gray-800">
             <h2 className="text-3xl col-span-4 text-center bg-gradient-to-r from-green-700 to-violet-800 bg-clip-text text-transparent font-bold">
-              <Typewriter words={["Add Food Items"]} loop={true} />
+              <Typewriter words={["Update Food Items"]} loop={true} />
               ..
             </h2>
             <p className="text-center col-span-4 px-4">
-              You can add any sort of Food Items you like. Make sure you are
-              providing real info.
+              You can update this Food Items if you would like. <br /> Make sure
+              you are providing real info.
             </p>
 
             <div className="grid grid-cols-6 gap-4 col-span-full">
@@ -122,6 +101,7 @@ const AddFood = () => {
                   type="text"
                   name="foodName"
                   required
+                  defaultValue={food_name}
                   placeholder="Enter Food Name"
                   className="w-full rounded-md focus:ring focus:ring-opacity-75 text-gray-900 focus:ring-violet-400 border-gray-700"
                 />
@@ -136,6 +116,7 @@ const AddFood = () => {
                   type="text"
                   name="foodCategory"
                   required
+                  defaultValue={food_category}
                   placeholder="Enter Food Category"
                   className="w-full rounded-md  text-gray-900 "
                 />
@@ -149,6 +130,7 @@ const AddFood = () => {
                   id="cost"
                   type="number"
                   required
+                  defaultValue={price}
                   name="price"
                   placeholder="Enter Price"
                   className="w-full rounded-md focus:ring focus:ring-opacity-75 text-gray-900 focus:ring-violet-400 border-gray-700"
@@ -163,6 +145,7 @@ const AddFood = () => {
                   id="quantity"
                   type="text"
                   required
+                  defaultValue={quantity}
                   name="quantity"
                   placeholder="quantity"
                   className="w-full rounded-md focus:ring focus:ring-opacity-75 text-gray-900 focus:ring-violet-400 border-gray-700"
@@ -177,7 +160,8 @@ const AddFood = () => {
                   id="userName"
                   type="text"
                   required
-                  defaultValue={user?.displayName || ""}
+                  defaultValue={made_by}
+                  disabled
                   name="userName"
                   placeholder="Enter user name"
                   className="w-full rounded-md focus:ring focus:ring-opacity-75 text-gray-900 focus:ring-violet-400 border-gray-700"
@@ -192,7 +176,8 @@ const AddFood = () => {
                   id="userEmail"
                   type="email"
                   name="userEmail"
-                  defaultValue={user?.email || ""}
+                  defaultValue={userEmail}
+                  disabled
                   required
                   placeholder="Enter User Email"
                   className="w-full rounded-md focus:ring focus:ring-opacity-75 text-gray-900 focus:ring-violet-400 border-gray-700"
@@ -207,6 +192,7 @@ const AddFood = () => {
                   id="countryName"
                   type="text"
                   required
+                  defaultValue={food_origin}
                   name="countryName"
                   placeholder="Enter country name"
                   className="w-full rounded-md focus:ring focus:ring-opacity-75 text-gray-900 focus:ring-violet-400 border-gray-700"
@@ -222,6 +208,7 @@ const AddFood = () => {
                   type="url"
                   name="photoURL"
                   required
+                  defaultValue={food_image}
                   placeholder="Enter photo url"
                   className="w-full rounded-md text-gray-900  border-none"
                 />
@@ -236,6 +223,7 @@ const AddFood = () => {
                   placeholder="Description"
                   name="description"
                   required
+                  defaultValue={description}
                   className="w-full rounded-md focus:ring focus:ring-opacity-75  text-black focus:dark:ring-violet-600 dark:border-gray-300"
                 ></textarea>
               </div>
@@ -245,7 +233,7 @@ const AddFood = () => {
                   id="Add"
                   type="submit"
                   name="button"
-                  value="Add/submit"
+                  value="Update"
                   className="w-full cursor-pointer py-2 border mt-4 rounded-md focus:ring focus:ring-opacity-75 btn text-white bg-gradient-to-r from-green-700 to-violet-800 border-gray-700"
                 />
               </div>
@@ -257,4 +245,4 @@ const AddFood = () => {
   );
 };
 
-export default AddFood;
+export default UpdateItem;

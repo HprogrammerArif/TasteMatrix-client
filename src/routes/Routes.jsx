@@ -2,13 +2,14 @@ import { createBrowserRouter } from "react-router-dom";
 import Main from "../layouts/Main";
 import NotFound from "../pages/Error/NotFound";
 import Home from "../pages/Home/Home";
-import Login from '../components/Login/Login'
+import Login from "../components/Login/Login";
 import Register from "../components/Register/Register";
 import FoodDetails from "../pages/SinglePage/FoodDetails";
 import PrivateRoute from "./PrivateRoute";
 import AllFoods from "../pages/AllFoods/AllFoods";
 import AddFood from "../pages/AddFood/AddFood";
 import MyAddedFood from "../pages/MyAddedFood/MyAddedFood";
+import UpdateItem from "../pages/UpdateFoodItem/UpdateItem";
 
 // import AddTourSpot from "../pages/AddTourSpot/AddTourSpot";
 // import UpdateTourSpot from "../pages/UpdateTourSpot/UpdateTourSpot";
@@ -19,7 +20,6 @@ import MyAddedFood from "../pages/MyAddedFood/MyAddedFood";
 // import AllTouristSpots from "../pages/AllTouristSpots/AllTouristSpots";
 // import MyList from "../pages/MyList/MyList";
 // import Contact from "../pages/Contact/Contact";
-
 
 const router = createBrowserRouter([
   {
@@ -53,7 +53,8 @@ const router = createBrowserRouter([
             <FoodDetails></FoodDetails>
           </PrivateRoute>
         ),
-        loader: ({params}) => fetch(`${import.meta.env.VITE_API_URL}/food/${params.id}`),
+        loader: ({ params }) =>
+          fetch(`${import.meta.env.VITE_API_URL}/food/${params.id}`),
       },
       {
         path: "/all-foods",
@@ -83,6 +84,17 @@ const router = createBrowserRouter([
             <MyAddedFood></MyAddedFood>
           </PrivateRoute>
         ),
+      },
+
+      {
+        path: "/update-food-item/:id",
+        element: (
+          <PrivateRoute>
+            <UpdateItem></UpdateItem>
+          </PrivateRoute>
+        ),
+        loader: ({ params }) =>
+          fetch(`${import.meta.env.VITE_API_URL}/food/${params.id}`),
       },
       // {
       //   path: "/updateTourSpot/:id",

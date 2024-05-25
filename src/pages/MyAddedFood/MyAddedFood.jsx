@@ -1,7 +1,8 @@
 import { useEffect, useState } from "react";
 import useAuth from "../../hooks/useAuth";
 import useAxiosSecure from "../../hooks/useAxiosSecure";
-import { FaEdit, FaTrashAlt } from "react-icons/fa";
+import { FaEdit } from "react-icons/fa";
+import { Link } from "react-router-dom";
 
 const MyAddedFood = () => {
   const { user } = useAuth();
@@ -46,8 +47,8 @@ const MyAddedFood = () => {
 
   return (
     <div>
-      <div className="flex justify-evenly mb-10">
-        <h2 className="text-4xl">Total Order: {foods.length} </h2>
+      <div className=" text-center mb-10 bg-gradient-to-r from-green-700 to-violet-800 bg-clip-text text-transparent font-bold">
+        <h2 className="text-4xl">Total Added Food: {foods.length} </h2>
       </div>
       <div className="overflow-x-auto">
         <table className="table w-full">
@@ -80,12 +81,14 @@ const MyAddedFood = () => {
                 <td>{item.food_name}</td>
                 <td>${item.price}</td>
                 <th>
-                  <button
+                  <Link
                     //onClick={() => handleDelete(item._id)}
+                    to={`/update-food-item/${item._id}`}
+                    //foodsItem={item}
                     className="btn btn-ghost btn-lg "
                   >
                     <FaEdit className="text-green-600"></FaEdit>
-                  </button>
+                  </Link>
                 </th>
               </tr>
             ))}
