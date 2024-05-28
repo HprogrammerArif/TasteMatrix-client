@@ -80,7 +80,7 @@ const AllFoods = () => {
 
   return (
     <>
-    <Cover  title="OUR ALL FOODS" subTitle="Would you like to try a dish?"></Cover>
+    <Cover img="https://i.ibb.co/yNjB5ks/photo-1592417817038-d13fd7342605-q-80-w-1470-auto-format-fit-crop-ixlib-rb-4-0.jpg"  title="OUR ALL FOODS" subTitle="Would you like to try a dish?"></Cover>
 
 
     <div className="container px-6 py-10 mx-auto min-h-[calc(100vh-306px)] flex flex-col justify-between">

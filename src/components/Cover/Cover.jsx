@@ -5,7 +5,7 @@ const Cover = ({ img, title, subTitle }) => {
   return (
     <Parallax
       blur={{ min: -50, max: 50 }}
-      bgImage={`https://i.ibb.co/yNjB5ks/photo-1592417817038-d13fd7342605-q-80-w-1470-auto-format-fit-crop-ixlib-rb-4-0.jpg`}
+      bgImage={img}
       bgImageAlt="the dog"
       strength={-200}
     >

@@ -12,6 +12,7 @@ import MyAddedFood from "../pages/MyAddedFood/MyAddedFood";
 import UpdateItem from "../pages/UpdateFoodItem/UpdateItem";
 import PurchaseFood from "../pages/PurchaseFood/PurchaseFood";
 import MyOrder from "../pages/MyOrder/MyOrder";
+import FoodGallery from "../pages/FoodGallery/FoodGallery";
 
 // import AddTourSpot from "../pages/AddTourSpot/AddTourSpot";
 // import UpdateTourSpot from "../pages/UpdateTourSpot/UpdateTourSpot";
@@ -98,6 +99,14 @@ const router = createBrowserRouter([
         element: (
           <PrivateRoute>
             <MyOrder></MyOrder>
+          </PrivateRoute>
+        ),
+      },
+      {
+        path: "/food-gallery",
+        element: (
+          <PrivateRoute>
+           <FoodGallery></FoodGallery>
           </PrivateRoute>
         ),
       },

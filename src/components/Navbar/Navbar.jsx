@@ -49,7 +49,7 @@ const Navbar = () => {
         <NavLink to="/all-foods">All Foods</NavLink>
       </li>
       <li>
-        <NavLink to="/addTourSpot">Gallery</NavLink>
+        <NavLink to="/food-gallery">Gallery</NavLink>
       </li>
 
       {/* {user && (
