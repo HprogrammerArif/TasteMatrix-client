@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 
 const TopFoodCard = ({ food }) => {
 
-  const { _id, food_category, food_image, food_name, price } = food;
+  const { _id, food_category, food_image, food_name, price, purchase_count } = food;
 
   // console.log(food);
   return (
@@ -26,12 +26,17 @@ const TopFoodCard = ({ food }) => {
           <h2 className="mb-2 mr-32 text-lg">Food Category:  <b>#{food_category}</b></h2>
           <h2 className="mb-2 text-lg">Price:  <b>{price}</b></h2>
           </div>
-          <div className="card-actions">
+          <div className="card-actions flex justify-between">
+            <div>
             <Link to={`/food/${_id}`}>
-            <button className="btn bg-violet-500 animate__animated animate__pulse animate__delay-2s text-white capitalize transition-colors duration-300 transform bg-gradient-to-r from-green-700 to-violet-800">
+            <button className="px-2 py-2 text-white bg-gradient-to-r from-green-700 to-violet-800">
               View Details
             </button>
             </Link>
+            </div>
+             <div>
+             <p className="mr-3">Purchase Count:<b>{purchase_count}</b></p>
+             </div>
           </div>
         </div>
       </div>

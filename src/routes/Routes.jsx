@@ -10,6 +10,8 @@ import AllFoods from "../pages/AllFoods/AllFoods";
 import AddFood from "../pages/AddFood/AddFood";
 import MyAddedFood from "../pages/MyAddedFood/MyAddedFood";
 import UpdateItem from "../pages/UpdateFoodItem/UpdateItem";
+import PurchaseFood from "../pages/PurchaseFood/PurchaseFood";
+import MyOrder from "../pages/MyOrder/MyOrder";
 
 // import AddTourSpot from "../pages/AddTourSpot/AddTourSpot";
 // import UpdateTourSpot from "../pages/UpdateTourSpot/UpdateTourSpot";
@@ -32,20 +34,15 @@ const router = createBrowserRouter([
         element: <Home></Home>,
         //loader: () => fetch(`${import.meta.env.VITE_API_URL}/foods`),
       },
-      // {
-      //   path: "/allTourSpot",
-      //   element: <AllTouristSpots></AllTouristSpots>,
-      //   loader: () => fetch("https://discover-wander-server-mohammedarifs-projects.vercel.app/touristSpot"),
-      // },
-      // {
-      //   path: "/myList",
-      //   element: (
-      //     <PrivateRoute>
-      //       <MyList></MyList>
-      //     </PrivateRoute>
-      //   ),
-      //   loader: () => fetch("https://discover-wander-server-mohammedarifs-projects.vercel.app/touristSpot"),
-      // },
+      {
+        path: "/purchase-food/:id",
+        element: (
+          <PrivateRoute>
+            <PurchaseFood></PurchaseFood>
+          </PrivateRoute>
+        ),
+        //loader: () => fetch("https://discover-wander-server-mohammedarifs-projects.vercel.app/touristSpot"),
+      },
       {
         path: "/food/:id",
         element: (
@@ -96,16 +93,14 @@ const router = createBrowserRouter([
         loader: ({ params }) =>
           fetch(`${import.meta.env.VITE_API_URL}/food/${params.id}`),
       },
-      // {
-      //   path: "/updateTourSpot/:id",
-      //   element: (
-      //     <PrivateRoute>
-      //       <UpdateTourSpot></UpdateTourSpot>
-      //     </PrivateRoute>
-      //   ),
-      //   loader: ({ params }) =>
-      //     fetch(`https://discover-wander-server-mohammedarifs-projects.vercel.app/touristSpot/${params.id}`),
-      // },
+      {
+        path: "/my-order",
+        element: (
+          <PrivateRoute>
+            <MyOrder></MyOrder>
+          </PrivateRoute>
+        ),
+      },
     ],
   },
 ]);

@@ -18,6 +18,7 @@ const TopFoods = () => {
 
   return (
     <div>
+      
       <div className="container px-6 py-10 mx-auto">
         <h3 className="text-center text-gray-800 font-bold capitalize  mb-4  ">
           Our Top Foods

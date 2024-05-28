@@ -2,6 +2,7 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import TopFoodCard from "../../components/TopFoods/TopFoodCard";
+import Cover from "../../components/Cover/Cover";
 
 const AllFoods = () => {
   const [itemsPerPage, setItemsPerPage] = useState(7);
@@ -78,15 +79,19 @@ const AllFoods = () => {
   //console.log(search);
 
   return (
+    <>
+    <Cover  title="OUR ALL FOODS" subTitle="Would you like to try a dish?"></Cover>
+
+
     <div className="container px-6 py-10 mx-auto min-h-[calc(100vh-306px)] flex flex-col justify-between">
       <div>
         <div className="flex flex-col md:flex-row justify-center items-center gap-5 ">
           <div>
             <select
               onChange={(e) => {
-                setFilter(e.target.value)
-                setCurrentPage(1)
-              }}
+                setFilter(e.target.value);
+                setCurrentPage(1);
+              } }
               value={filter}
               name="category"
               id="category"
@@ -103,14 +108,13 @@ const AllFoods = () => {
           <form onSubmit={handleSearch}>
             <div className="flex p-1 overflow-hidden border rounded-lg    focus-within:ring focus-within:ring-opacity-40 focus-within:border-blue-400 focus-within:ring-blue-300">
               <input
-              onChange={(e) => setSearchText(e.target.value)}
-              value={searchText}
+                onChange={(e) => setSearchText(e.target.value)}
+                value={searchText}
                 className="px-6 py-2 text-gray-700 placeholder-gray-500 bg-white outline-none focus:placeholder-transparent"
                 type="text"
                 name="search"
                 placeholder="Enter Job Title"
-                aria-label="Enter Job Title"
-              />
+                aria-label="Enter Job Title" />
 
               <button className="px-1 md:px-4 py-3 text-sm font-medium tracking-wider text-gray-100 uppercase transition-colors duration-300 transform bg-gray-700 rounded-md hover:bg-gray-600 focus:bg-gray-600 focus:outline-none">
                 Search
@@ -119,11 +123,11 @@ const AllFoods = () => {
           </form>
           <div>
             <select
-             onChange={(e) => {
-              setSort(e.target.value)
-              setCurrentPage(1)
-            }}
-            value={sort}
+              onChange={(e) => {
+                setSort(e.target.value);
+                setCurrentPage(1);
+              } }
+              value={sort}
               name="sort"
               id="sort"
               className="border p-4 rounded-md"
@@ -163,8 +167,7 @@ const AllFoods = () => {
                 strokeLinecap="round"
                 strokeLinejoin="round"
                 strokeWidth="2"
-                d="M7 16l-4-4m0 0l4-4m-4 4h18"
-              />
+                d="M7 16l-4-4m0 0l4-4m-4 4h18" />
             </svg>
 
             <span className="mx-1">previous</span>
@@ -176,9 +179,7 @@ const AllFoods = () => {
           <button
             onClick={() => handlePaginationButton(btnNum)}
             key={btnNum}
-            className={`hidden ${
-              currentPage === btnNum ? "bg-blue-500 text-white" : ""
-            } px-4 py-2 mx-1 transition-colors duration-300 transform  rounded-md sm:inline hover:bg-blue-500  hover:text-white`}
+            className={`hidden ${currentPage === btnNum ? "bg-blue-500 text-white" : ""} px-4 py-2 mx-1 transition-colors duration-300 transform  rounded-md sm:inline hover:bg-blue-500  hover:text-white`}
           >
             {btnNum}
           </button>
@@ -204,13 +205,12 @@ const AllFoods = () => {
                 strokeLinecap="round"
                 strokeLinejoin="round"
                 strokeWidth="2"
-                d="M17 8l4 4m0 0l-4 4m4-4H3"
-              />
+                d="M17 8l4 4m0 0l-4 4m4-4H3" />
             </svg>
           </div>
         </button>
       </div>
-    </div>
+    </div></>
   );
 };
 
