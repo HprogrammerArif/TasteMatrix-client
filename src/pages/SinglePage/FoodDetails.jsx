@@ -110,7 +110,7 @@ const FoodDetails = () => {
                 </svg>
                 <span className="self-center text-md">{made_by}</span>
               </div>
-              <Link to={`/purchase-food/${_id}`}>
+              <Link  to={`/purchase-food/${_id}`}>
                 <button className="btn text-white capitalize bg-gradient-to-l from-green-700 to-violet-800">
                   Add To Cart
                 </button>

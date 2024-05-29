@@ -3,7 +3,7 @@ import { Typewriter } from "react-simple-typewriter";
 import Swal from "sweetalert2";
 import useAuth from "../../hooks/useAuth";
 import useAxiosSecure from "../../hooks/useAxiosSecure";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 
 const PurchaseFood = () => {
@@ -11,6 +11,8 @@ const PurchaseFood = () => {
   const axiosSecure = useAxiosSecure();
   const navigate = useNavigate();
   const [buyingDate, setBuyingDate] = useState("");
+  const { id } = useParams();
+  //console.log(id);
 
   const handlePurchaseFood = (e) => {
     e.preventDefault();
@@ -37,6 +39,7 @@ const PurchaseFood = () => {
         buying_date,
         purchase_by,
         userEmail,
+        id
       };
       console.log(newFoodItem);
 

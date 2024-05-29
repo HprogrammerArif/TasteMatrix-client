@@ -35,7 +35,7 @@ const TopFoodCard = ({ food }) => {
             </Link>
             </div>
              <div>
-             <p className="mr-3">Totla Purchase:<b>{purchase_count}</b></p>
+             <p className="mr-3 font-bold text-md">Totla Purchase:<b>{purchase_count}</b></p>
              </div>
           </div>
         </div>
