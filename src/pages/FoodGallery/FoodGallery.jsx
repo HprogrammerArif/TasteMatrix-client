@@ -1,11 +1,11 @@
 import { useState } from "react";
 import Cover from "../../components/Cover/Cover";
 import TopIntro from "../../components/Intro/TopIntro";
-import useFoodData from "../../hooks/useFoodData";
 import Modal from "./Modal";
+import useAllFood from "../../hooks/useAllFood";
 
 const FoodGallery = () => {
-  const [foods] = useFoodData();
+  const [foods] = useAllFood()
   console.log(foods);
 
   const [isModalOpen, setIsModalOpen] = useState(false);

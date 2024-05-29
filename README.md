@@ -1,8 +1,16 @@
-# React + Vite
+assignment_category_0005
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+WEBSITE NAME: TasteMatrix
+Live URL: https://tastematrix.web.app/
 
-Currently, two official plugins are available:
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+FIVE NOTEABLE FEATURE:
+1. Added Dark and Light Them
+2. Added GitHub, Email Password and Google Authentication with validation
+3. Added JWT and verify it
+4. added private route
+5. added tost or warning, sewwtalert2 for success and error where needed
+6. added slider
+7. implement search sort functionality
+7. Multy Functionality
+and so on.
