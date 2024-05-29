@@ -18,6 +18,7 @@ const MyOrder = () => {
 
   const getData = async () => {
     const { data } = await axiosSecure(`/my-order/${user?.email}`);
+    
     setFoods(data);
   };
   console.log(foods);
